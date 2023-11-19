@@ -2,8 +2,20 @@
   "image": "ghcr.io/devcontainers/php:1-laravel",
   "features": {
     "ghcr.io/devcontainers/features/php:1": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/docker-inside-of-docker:1": {},
     "ghcr.io/devcontainers/features/zsh:1": {}
   },
-  "postCreateCommand": "chsh -s $(which zsh)"
+  "postCreateCommand": "chsh -s $(which zsh)",
+  "services": {
+    "docker": {
+      "image": "docker:dind",
+      "volumes": [
+        "/var/run/docker.sock:/var/run/docker.sock"
+      ]
+    }
+  },
+  "runArgs": [
+    "-e",
+    "DOCKER_HOST=tcp://localhost:2375"
+  ]
 }
