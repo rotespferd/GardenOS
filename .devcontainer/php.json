@@ -6,6 +6,10 @@
     "ghcr.io/devcontainers/features/zsh:1": {}
   },
   "postCreateCommand": "chsh -s $(which zsh)",
+  "extensions": [
+    "github.copilot",
+    "github.copilot-chat"
+  ],
   "services": {
     "docker": {
       "image": "docker:dind",
