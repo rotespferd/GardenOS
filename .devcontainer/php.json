@@ -1,7 +1,16 @@
 {
-  "image": "ghcr.io/devcontainers/php:1-laravel",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
   "features": {
-    "ghcr.io/devcontainers/features/php:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "username": "vscode",
+      "userUid": "1000",
+      "userGid": "1000",
+      "upgradePackages": "true"
+    },
     "ghcr.io/devcontainers/features/docker-inside-of-docker:1": {},
     "ghcr.io/devcontainers/features/zsh:1": {}
   },
